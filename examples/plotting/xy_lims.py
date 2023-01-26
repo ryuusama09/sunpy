@@ -41,7 +41,7 @@ ylims_world = [-800, 0]*u.arcsec
 # determine which pixel coordinates these represent on the Map.
 
 world_coords = SkyCoord(Tx=xlims_world, Ty=ylims_world, frame=aia_map.coordinate_frame)
-pixel_coords = aia_map.world_to_pixel(world_coords)
+pixel_coords = aia_map.wcs.world_to_pixel(world_coords)
 
 # we can then pull out the x and y values of these limits.
 xlims_pixel = pixel_coords.x.value
