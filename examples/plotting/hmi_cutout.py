@@ -124,7 +124,7 @@ xypix = PixelPair(xypix[0]*u.pixel,xypix[1]*u.pixel)
 xpix = xypix[0]
 ypix = xypix[1]
 con2 = ConnectionPatch(
-    (0, 0), (xpix.value, ypix.value), 'axes fraction', 'data', axesA=ax2, axesB=ax1,
+    (0, 0), (xpix, ypix), 'axes fraction', 'data', axesA=ax2, axesB=ax1,
     arrowstyle='-', color='black', lw=1
 )
 ax2.add_artist(con1)
