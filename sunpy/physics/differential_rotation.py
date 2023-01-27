@@ -5,7 +5,6 @@ import numpy as np
 import astropy.units as u
 from astropy.coordinates import BaseCoordinateFrame, Longitude, SkyCoord
 from astropy.time import TimeDelta
-from sunpy.map import PixelPair
 from sunpy.coordinates import Heliocentric, HeliographicStonyhurst, Helioprojective, get_earth
 from sunpy.coordinates.transformations import transform_with_sun_center
 from sunpy.map import (
