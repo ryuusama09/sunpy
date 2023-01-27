@@ -5,7 +5,7 @@ import numpy as np
 import astropy.units as u
 from astropy.coordinates import BaseCoordinateFrame, Longitude, SkyCoord
 from astropy.time import TimeDelta
-
+from sunpy.map import PixelPair
 from sunpy.coordinates import Heliocentric, HeliographicStonyhurst, Helioprojective, get_earth
 from sunpy.coordinates.transformations import transform_with_sun_center
 from sunpy.map import (
@@ -451,14 +451,15 @@ def _warp_sun_coordinates(xy, smap, new_observer, **diff_rot_kwargs):
         # transforming to HGS. This is acceptable because the pixel -> world
         # transformation is independent of the observer.
         input_pixels = xy.T * u.pix
-        map_coord = smap.wcs.pixel_to_world(*input_pixels)
+        map_coord= smap.wcs.pixel_to_world(*input_pixels)
         output_hpc_coords = SkyCoord(map_coord.Tx,
                                      map_coord.Ty,
                                      map_coord.distance,
                                      obstime=new_observer.obstime,
                                      observer=new_observer,
                                      frame=Helioprojective)
-
+        
+        
         heliographic_coordinate = output_hpc_coords.transform_to(HeliographicStonyhurst)
 
         # Compute the differential rotation.
@@ -481,7 +482,11 @@ def _warp_sun_coordinates(xy, smap, new_observer, **diff_rot_kwargs):
             coordinates_at_map_observer = rotated_coord.transform_to(smap.coordinate_frame)
 
         # Go back to pixel coordinates
-        x2, y2 = smap.wcs.world_to_pixel(coordinates_at_map_observer)
+        pix  = smap.wcs.world_to_pixel(coordinates_at_map_observer)
+        pix = PixelPair(pix[0]*u.pixel,pix[1]*u.pixel)
+        x2 = pix[0]
+        y2 = pix[1]
+        
 
     # Re-stack the data to make it correct output form
     xy2 = np.dstack([x2.T.value.flat, y2.T.value.flat])[0]
