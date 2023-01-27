@@ -120,9 +120,6 @@ con1 = ConnectionPatch(
 )
 xypix = magnetogram_big.wcs.world_to_pixel(
     SkyCoord(right_corner.Tx, left_corner.Ty, frame=magnetogram_big.coordinate_frame))
-xypix = PixelPair(xypix[0]*u.pixel,xypix[1]*u.pixel)
-xpix = xypix[0]
-ypix = xypix[1]
 con2 = ConnectionPatch(
     (0, 0), (xpix, ypix), 'axes fraction', 'data', axesA=ax2, axesB=ax1,
     arrowstyle='-', color='black', lw=1
