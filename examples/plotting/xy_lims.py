@@ -47,8 +47,6 @@ pixel_coords = PixelPair(pixel_coords_x*u.pixel,pixel_coords_y*u.pixel)
 
 #pixel_coords = PixelPair(pixel_coords_x,pixel_coords_y)
 
-# we can then pull out the x and y values of these limits.
-xlims_pixel = pixel_coords.x.value
 ylims_pixel = pixel_coords.y.value
 
 ###############################################################################
