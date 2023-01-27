@@ -482,10 +482,7 @@ def _warp_sun_coordinates(xy, smap, new_observer, **diff_rot_kwargs):
             coordinates_at_map_observer = rotated_coord.transform_to(smap.coordinate_frame)
 
         # Go back to pixel coordinates
-        pix  = smap.wcs.world_to_pixel(coordinates_at_map_observer)
-        pix = PixelPair(pix[0]*u.pixel,pix[1]*u.pixel)
-        x2 = pix[0]
-        y2 = pix[1]
+        x2, y2 = smap.wcs.world_to_pixel(coordinates_at_map_observer)
         
 
     # Re-stack the data to make it correct output form
