@@ -483,7 +483,7 @@ Removals
   attributes are set on a `~astropy.wcs.WCS`. (`#5348 <https://github.com/sunpy/sunpy/pull/5348>`__)
 - Support for passing non-unit levels to :meth:`sunpy.map.GenericMap.draw_contours`
   when map data has units set has been removed, and with now raise an error. (`#5352 <https://github.com/sunpy/sunpy/pull/5352>`__)
-- The ``origin`` argument to :meth:`sunpy.map.GenericMap..world_to_pixel` and
+- The ``origin`` argument to :meth:`sunpy.map.GenericMap.world_to_pixel` and
   :meth:`sunpy.map.GenericMap.pixel_to_world` has been removed. (`#5353 <https://github.com/sunpy/sunpy/pull/5353>`__)
 - Support for plotting or contouring `~sunpy.map.GenericMap` on axes that are not
   `~astropy.visualization.wcsaxes.WCSAxes` has been removed. To create a
