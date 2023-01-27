@@ -115,7 +115,7 @@ xypix = PixelPair(xypix[0]*u.pixel,xypix[1]*u.pixel)
 xpix = xypix[0]
 ypix = xypix[1]
 con1 = ConnectionPatch(
-    (0, 1), (xpix.value, ypix.value), 'axes fraction', 'data', axesA=ax2, axesB=ax1,
+    (0, 1), (xpix, ypix), 'axes fraction', 'data', axesA=ax2, axesB=ax1,
     arrowstyle='-', color='black', lw=1
 )
 xpix, ypix = magnetogram_big.wcs.world_to_pixel(
