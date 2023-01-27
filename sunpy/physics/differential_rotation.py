@@ -489,7 +489,7 @@ def _warp_sun_coordinates(xy, smap, new_observer, **diff_rot_kwargs):
         
 
     # Re-stack the data to make it correct output form
-    xy2 = np.dstack([x2.T.value.flat, y2.T.value.flat])[0]
+    xy2 = np.dstack([x2.T.flat, y2.T.flat])[0]
     # Set the off disk coordinates to NaN so they are not included in the output image.
     xy2[where_off_disk_from_map_observer.flat] = np.nan
 
