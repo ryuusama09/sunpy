@@ -450,7 +450,7 @@ def _warp_sun_coordinates(xy, smap, new_observer, **diff_rot_kwargs):
         # transforming to HGS. This is acceptable because the pixel -> world
         # transformation is independent of the observer.
         input_pixels = xy.T * u.pix
-        map_coord= smap.wcs.pixel_to_world(*input_pixels)
+        map_coord = smap.wcs.pixel_to_world(*input_pixels)
         output_hpc_coords = SkyCoord(map_coord.Tx,
                                      map_coord.Ty,
                                      map_coord.distance,
