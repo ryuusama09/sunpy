@@ -14,6 +14,7 @@ from astropy.coordinates import SkyCoord
 
 import sunpy.data.sample
 import sunpy.map
+
 ###############################################################################
 # Lets start by creating a Map from the sample data.
 
