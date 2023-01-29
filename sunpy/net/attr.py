@@ -92,7 +92,7 @@ class AttrMeta(type):
     _attr_registry = defaultdict(make_tuple)
 
     def __getattr__(self, item):
-        """
+        """ 
         Our method for Attrs is to register using the attribute type (i.e. Instrument) as keys
         in a dictionary. ``_attr_registry`` is a dictionary with the keys being subclasses of Attr
         and the value being the namedtuple of lists.
